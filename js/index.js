@@ -54,23 +54,36 @@ function playRound(playerSelection, computerSelection) {
 };
 
 // playerSelection
-function playerSelection() {
-    // const playerSelection = prompt("Choose: \n\tr for rock,\n\tp for paper or\n\ts for scissors");
-    
-    prompt("Choose: \n\tr for rock,\n\tp for paper or\n\ts for scissors");
-};
+function getPlayerSelection() {
+    const selection_dict = {
+        'r': 'Rock',
+        'p': 'Paper',
+        's': 'Scissors'
+    };
 
-function game () {
-    for (let i = 0; i < 5; i++) {
-        
+    const playerSelection = prompt("Choose 'r' for rock, 'p' for paper or 's' for scissors:").toLowerCase();
+
+    if (['r', 'p', 's'].includes(playerSelection)) {
+        return selection_dict[playerSelection]
     };
 };
 
-function main() {
-    const playerSelection = 'rock';
-    const computerSelection = getComputerChoise();
+function game() {
+    let score = 0; 
+    let round = 5;
 
-    console.log(playRound(playerSelection, computerSelection));
+    for (let i = 0; i < round; i++) {
+        const playerSelection = getPlayerSelection();
+        const computerSelection = getComputerChoise();
+
+        const roundResult = playRound(playerSelection, computerSelection);
+        console.log(roundResult)
+
+        if ( roundResult.includes('win') ) {
+            score++;
+        }
+    };
+    console.log(`You\'ve won ${score} out of ${round} rounds!`)
 };
 
-main();
+game();
