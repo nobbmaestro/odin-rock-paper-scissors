@@ -87,3 +87,10 @@ function getPlayerSelection() {
 // };
 // 
 // game();
+
+function handleClick(playerSelection) {
+    
+}
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => button.addEventListener('click', () => handleClick(button.innerText.toLocaleLowerCase())))
