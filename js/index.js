@@ -14,6 +14,7 @@ function getComputerChoise() {
 function capitilizeFirstLetter(string) {
     return string[0].toUpperCase() + string.slice(1)
 };
+
 function playRound_helper(playerSelection, computerSelection) {
     const outcome_dict = {
         'rock': {
@@ -55,16 +56,22 @@ function playRound(playerSelection, computerSelection) {
 
 function handleClick(playerSelection) {
     if (playerSelection === 'restart') {
-        // restartGame()
+        restartGame()
 
     // } else if (isGameOver() == true) {
-        // console.log("GAME OVER!")
+    //     console.log("GAME OVER!")
 
     } else {
         const computerSelection = getComputerChoise();
         playRound(playerSelection, computerSelection);
         console.log(score);
     }
+}
+
+function restartGame() {
+    console.log("RESTARTING GAME...")
+    score['player'] = 0;
+    score['computer'] = 0;
 }
 
 var score = {'player': 0, 'computer': 0};
