@@ -58,14 +58,15 @@ function handleClick(playerSelection) {
     if (playerSelection === 'restart') {
         restartGame()
 
-    } else if (isGameOver() == true) {
-        console.log("GAME OVER!")
-
     } else {
         const computerSelection = getComputerChoise();
         playRound(playerSelection, computerSelection);
         console.log(score);
     }
+
+    if (isGameOver() == true) {
+        console.log("GAME OVER!");
+    };
 }
 
 function restartGame() {
@@ -77,7 +78,7 @@ function restartGame() {
 function isGameOver() {
     if (score['player'] == 5 || score['computer'] == 5) {
         return true;
-        
+
     } else {
         return false;
     };
