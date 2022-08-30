@@ -54,7 +54,7 @@ function playRound(playerSelection, computerSelection) {
     }
 };
 
-function handleClick(playerSelection) {
+function onClick(playerSelection) {
     if (playerSelection === 'restart') {
         restartGame()
 
@@ -87,4 +87,4 @@ function isGameOver() {
 var score = {'player': 0, 'computer': 0};
 
 const buttons = document.querySelectorAll('button');
-buttons.forEach(button => button.addEventListener('click', () => handleClick(button.innerText.toLocaleLowerCase())))
+buttons.forEach(button => button.addEventListener('click', () => onClick(button.innerText.toLocaleLowerCase())))
