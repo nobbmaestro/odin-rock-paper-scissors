@@ -53,41 +53,6 @@ function playRound(playerSelection, computerSelection) {
     }
 };
 
-// playerSelection
-function getPlayerSelection() {
-    const selection_dict = {
-        'r': 'Rock',
-        'p': 'Paper',
-        's': 'Scissors'
-    };
-
-    const playerSelection = prompt("Choose 'r' for rock, 'p' for paper or 's' for scissors:").toLowerCase();
-
-    if (['r', 'p', 's'].includes(playerSelection)) {
-        return selection_dict[playerSelection]
-    };
-};
-
-// function game() {
-//     let score = 0; 
-//     let round = 5;
-// 
-//     for (let i = 0; i < round; i++) {
-//         const playerSelection = getPlayerSelection();
-//         const computerSelection = getComputerChoise();
-// 
-//         const roundResult = playRound(playerSelection, computerSelection);
-//         console.log(roundResult)
-// 
-//         if ( roundResult.includes('win') ) {
-//             score++;
-//         }
-//     };
-//     console.log(`You\'ve won ${score} out of ${round} rounds!`)
-// };
-// 
-// game();
-
 function handleClick(playerSelection) {
     if (playerSelection === 'restart') {
         // restartGame()
