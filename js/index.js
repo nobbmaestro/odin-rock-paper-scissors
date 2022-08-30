@@ -7,7 +7,7 @@ function getComputerChoise() {
     const choise = ['Rock', 'Paper', 'Scissors'];
     const max = choise.length;
     
-    return choise[randomInt(max)];
+    return choise[randomInt(max)].toLocaleLowerCase();
 }
 
 // playRound + helper
