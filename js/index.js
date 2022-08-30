@@ -34,16 +34,16 @@ function playRound_helper(playerSelection, computerSelection) {
     }
     return outcome_dict[playerSelection][computerSelection]
 };
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase()
-    computerSelection = computerSelection.toLowerCase()
 
+function playRound(playerSelection, computerSelection) {
     switch (playRound_helper(playerSelection, computerSelection)) {
         case 'win':
+            score['player']++;
             return `You win! ${capitilizeFirstLetter(playerSelection)} beats ${computerSelection}.`
             break;
 
         case 'loss':
+            score['computer']++;
             return `You lose! ${capitilizeFirstLetter(computerSelection)} beats ${playerSelection}.`
             break;
 
@@ -89,8 +89,20 @@ function getPlayerSelection() {
 // game();
 
 function handleClick(playerSelection) {
-    
+    if (playerSelection === 'restart') {
+        // restartGame()
+
+    // } else if (isGameOver() == true) {
+        // console.log("GAME OVER!")
+
+    } else {
+        const computerSelection = getComputerChoise();
+        playRound(playerSelection, computerSelection);
+        console.log(score);
+    }
 }
+
+var score = {'player': 0, 'computer': 0};
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('click', () => handleClick(button.innerText.toLocaleLowerCase())))
