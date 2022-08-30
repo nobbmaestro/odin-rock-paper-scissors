@@ -68,22 +68,22 @@ function getPlayerSelection() {
     };
 };
 
-function game() {
-    let score = 0; 
-    let round = 5;
-
-    for (let i = 0; i < round; i++) {
-        const playerSelection = getPlayerSelection();
-        const computerSelection = getComputerChoise();
-
-        const roundResult = playRound(playerSelection, computerSelection);
-        console.log(roundResult)
-
-        if ( roundResult.includes('win') ) {
-            score++;
-        }
-    };
-    console.log(`You\'ve won ${score} out of ${round} rounds!`)
-};
-
-game();
+// function game() {
+//     let score = 0; 
+//     let round = 5;
+// 
+//     for (let i = 0; i < round; i++) {
+//         const playerSelection = getPlayerSelection();
+//         const computerSelection = getComputerChoise();
+// 
+//         const roundResult = playRound(playerSelection, computerSelection);
+//         console.log(roundResult)
+// 
+//         if ( roundResult.includes('win') ) {
+//             score++;
+//         }
+//     };
+//     console.log(`You\'ve won ${score} out of ${round} rounds!`)
+// };
+// 
+// game();
