@@ -41,11 +41,13 @@ function playRound(playerSelection, computerSelection) {
         case 'win':
             score['player']++;
             updateRoundInDom(`You win! ${capitilizeFirstLetter(playerSelection)} beats ${computerSelection}.`);
+            updateScoreInDom();
             break;
 
         case 'loss':
             score['computer']++;
             updateRoundInDom(`You lose! ${capitilizeFirstLetter(computerSelection)} beats ${playerSelection}.`);
+            updateScoreInDom();
             break;
 
         case 'tie':
@@ -76,6 +78,7 @@ function restartGame() {
     score['player'] = 0;
     score['computer'] = 0;
     updateRoundInDom("Choose your weapon!");
+    updateScoreInDom(score);
 }
 
 function isGameOver() {
@@ -91,8 +94,15 @@ function updateScoreInDom() {
     playerScoreSelector.innerText = `Player: ${score['player']}`;
     computerScoreSelector.innerText = `Computer: ${score['computer']}`;
 }
+
+function updateRoundInDom(msg) {
+    playerMessegeSelector.innerText = msg;
+}
+
 var score = {'player': 0, 'computer': 0};
 const playerMessegeSelector = document.querySelector('#player-messege');
+const playerScoreSelector = document.querySelector('#player-score');
+const computerScoreSelector = document.querySelector('#computer-score');
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('click', () => onClick(button.innerText.toLocaleLowerCase())))
