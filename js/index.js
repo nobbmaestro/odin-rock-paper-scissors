@@ -59,14 +59,16 @@ function onClick(playerSelection) {
         restartGame()
 
     } else {
-        const computerSelection = getComputerChoise();
-        playRound(playerSelection, computerSelection);
-        console.log(score);
+        while (isGameOver() == false) {
+            const computerSelection = getComputerChoise();
+            playRound(playerSelection, computerSelection);
+            console.log(score);
+            break;
+        }   
     }
-
     if (isGameOver() == true) {
-        console.log("GAME OVER!");
-    };
+        console.log("Game over!")
+    }
 }
 
 function restartGame() {
@@ -76,8 +78,8 @@ function restartGame() {
 }
 
 function isGameOver() {
-    if (score['player'] == 5 || score['computer'] == 5) {
-        return true;
+    if (score['player'] >= 5 || score['computer'] >= 5) {
+        return true; 
 
     } else {
         return false;
